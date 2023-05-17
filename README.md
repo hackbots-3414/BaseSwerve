@@ -1,5 +1,3 @@
-**Note: In 2023, there was an [issue](https://github.com/Team364/BaseFalconSwerve/issues/8) that prevented this code from working with MK4i's (or any module that used inverted motors). A [fix](https://github.com/Team364/BaseFalconSwerve/issues/8#issuecomment-1384799539) has been found, tested on a real robot, and this issue is believed to have been fixed as of 1/17. If anyone experiences any further issues, please report them. Thanks**
-
 # BaseFalconSwerve </br>
 
 **Basic Swerve Code for a Swerve Module using Falcon Motors, a CTRE CANCoder, and a CTRE Pigeon Gyro** </br>
@@ -61,7 +59,8 @@ These instructions are mostly followable from Step
 **Controller Mappings**
 ----
 This code is natively setup to use a xbox controller to control the swerve drive. </br>
-* Left Stick: Translation Control (forwards and sideways movement)
-* Right Stick: Rotation Control </br>
-* Y button: Zero Gyro (useful if the gyro drifts mid match, just rotate the robot forwards, and press Y to rezero)
-* Left Bumper: Switches To Robot Centric Control while held
+* Left Stick (Axis 1 & 0): Translation Control (forwards and sideways movement)
+* Right Stick (Axis 3): Rotation Control </br>
+* 13th Button: Zero Gyro (useful if the gyro drifts mid match, just rotate the robot forwards, and press Y to rezero)
+* 10th Button: Switches To Robot Centric Control while held
+* 16th Button: Resets Modules To Absolute Positions (Useful If Mods Are Out Of Sync)

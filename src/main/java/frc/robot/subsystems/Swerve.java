@@ -50,7 +50,7 @@ public class Swerve extends SubsystemBase {
     public Swerve() {
         gyro = new Pigeon2(Constants.DrivetrainConstants.pigeonID, Constants.DrivetrainConstants.canbusString);
         gyro.configFactoryDefault();
-        gyro.setYaw(0, DrivetrainConstants.canPause);
+        gyro.setYaw(0, Constants.canPause);
 
         mSwerveMods = new SwerveModule[] {
                 new SwerveModule(0, Constants.DrivetrainConstants.Mod0.constants),
@@ -73,20 +73,6 @@ public class Swerve extends SubsystemBase {
         }
 
         swerveOdometry = new SwerveDriveOdometry(Constants.DrivetrainConstants.swerveKinematics, getHardwareYaw(), getModulePositions());
-
-        Matrix<N3, N1> robotSD = new Matrix<>(Nat.N3(), Nat.N1());
-        robotSD.set(0, 0, 0.1);
-        robotSD.set(1, 0, 0.1);
-        robotSD.set(2, 0, Math.toRadians(0.5));
-
-        Matrix<N3, N1> visionSD = new Matrix<>(Nat.N3(), Nat.N1());
-        visionSD.set(0, 0, 0.01);
-        visionSD.set(1, 0, 0.9);
-        visionSD.set(2, 0, 0.01);
-
-        poseEstimator = new SwerveDrivePoseEstimator(Constants.DrivetrainConstants.swerveKinematics, new Rotation2d(gyro.getYaw()),
-                getModulePositions(), new Pose2d(), robotSD, visionSD);
-        fieldSim = new Field2d();
     }
 
     public void drive(Translation2d translation, double rotation, boolean fieldRelative, boolean isOpenLoop) {
@@ -128,7 +114,7 @@ public class Swerve extends SubsystemBase {
     }
     
     public void resetOdometry(Pose2d pose) {
-        gyro.setYaw(pose.getRotation().getDegrees(), DrivetrainConstants.canPause);
+        gyro.setYaw(pose.getRotation().getDegrees(), Constants.canPause);
         swerveOdometry.resetPosition(pose.getRotation(), getModulePositions(), pose);
     }
 
@@ -137,7 +123,7 @@ public class Swerve extends SubsystemBase {
     }
 
     public void zeroHeading() {
-        gyro.setYaw(0, DrivetrainConstants.canPause);
+        gyro.setYaw(0, Constants.canPause);
         swerveOdometry.resetPosition(new Rotation2d(0), getModulePositions(), new Pose2d(new Translation2d(getPose().getX(), getPose().getY()), Rotation2d.fromDegrees(0)));
     }
 

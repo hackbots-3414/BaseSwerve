@@ -149,13 +149,13 @@ public class SwerveModule {
     }
 
     private void configAngleEncoder() {
-        angleEncoder.configFactoryDefault(Constants.DrivetrainConstants.canPause);
-        angleEncoder.configAllSettings(Robot.ctreConfigs.swerveCanCoderConfig, Constants.DrivetrainConstants.canPause);
+        angleEncoder.configFactoryDefault(Constants.canPause);
+        angleEncoder.configAllSettings(Robot.ctreConfigs.swerveCanCoderConfig, Constants.canPause);
     }
 
     private void configAngleMotor() {
-        mAngleMotor.configFactoryDefault(Constants.DrivetrainConstants.canPause);
-        mAngleMotor.configAllSettings(Robot.ctreConfigs.swerveAngleFXConfig, Constants.DrivetrainConstants.canPause);
+        mAngleMotor.configFactoryDefault(Constants.canPause);
+        mAngleMotor.configAllSettings(Robot.ctreConfigs.swerveAngleFXConfig, Constants.canPause);
         mAngleMotor.setInverted(Constants.DrivetrainConstants.angleMotorInvert);
         mAngleMotor.setNeutralMode(Constants.DrivetrainConstants.angleNeutralMode);
         try {
@@ -167,8 +167,8 @@ public class SwerveModule {
     }
 
     private void configDriveMotor() {
-        mDriveMotor.configFactoryDefault(Constants.DrivetrainConstants.canPause);
-        mDriveMotor.configAllSettings(Robot.ctreConfigs.swerveDriveFXConfig, Constants.DrivetrainConstants.canPause);
+        mDriveMotor.configFactoryDefault(Constants.canPause);
+        mDriveMotor.configAllSettings(Robot.ctreConfigs.swerveDriveFXConfig, Constants.canPause);
         mDriveMotor.setInverted(Constants.DrivetrainConstants.driveMotorInvert);
         mDriveMotor.setNeutralMode(Constants.DrivetrainConstants.driveNeutralMode);
         try {
@@ -176,7 +176,7 @@ public class SwerveModule {
         } catch (InterruptedException e) {
             System.out.println("Drive Neutral Mode Delay: " + e);
         }
-        mDriveMotor.setSelectedSensorPosition(0, 0, Constants.DrivetrainConstants.canPause);
+        mDriveMotor.setSelectedSensorPosition(0, 0, Constants.canPause);
     }
 
     public SwerveModuleState getState() {

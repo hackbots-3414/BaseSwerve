@@ -16,6 +16,9 @@ public final class Constants {
     public static final class Swerve {
         public static final int pigeonID = 1;
         public static final boolean invertGyro = false; // Always ensure Gyro is CCW+ CW-
+        public static final String canbusString = "Canivore"; //Ensure a match
+
+        public static final int canPause = 100;
 
         public static final COTSFalconSwerveConstants chosenModule =  //TODO: This must be tuned to specific robot
             COTSFalconSwerveConstants.SDSMK4i(COTSFalconSwerveConstants.driveGearRatios.SDSMK4i_L2);
@@ -130,5 +133,4 @@ public final class Constants {
         }
     }
 
-    
 }
